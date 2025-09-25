@@ -33,14 +33,15 @@
   },
   "plugins": [
     "expo-localization",
-    "expo-font",
     [
-      "expo-splash-screen",
+      "expo-font",
       {
-        "image": "./assets/images/app-icon-android-adaptive-foreground.png",
-        "imageWidth": 300,
-        "resizeMode": "contain",
-        "backgroundColor": "#191015"
+        "fonts": [
+          "./assets/fonts/Oxanium-Bold.ttf",
+          "./assets/fonts/Oxanium-Medium.ttf",
+          "./assets/fonts/Oxanium-Regular.ttf",
+          "./assets/fonts/Oxanium-SemiBold.ttf"
+        ]
       }
     ],
     [
