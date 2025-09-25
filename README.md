@@ -1,77 +1,91 @@
-# Welcome to your new ignited app!
+# React Native Essentials
 
-> The latest and greatest boilerplate for Infinite Red opinions
+Welcome to the React Native Essentials workshop! This hands-on workshop will go through the fundamentals of React Native from “init-ing” our application to getting our app to looking good and functional. It will wrap up with a discussion on more “intermediate” topics and address any questions the class may have. The objective of this workshop is to help React developers take the plunge into mobile and show the similarities between the two platforms.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+Table of contents (subject to change):
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+1. Overview
+   1. Setting up the Environment
+   2. Working with dependencies
+   3. Application Architecture
+   4. Looking Under the Hood
+2. Debugging
+3. Visual Concepts
+   1. Making Stuff Look Good (custom components, styling, and layout)
+4. Navigating Plus
+5. Meet the List
+   1. Long List Concepts
+   2. Section Lists
+   3. API Data
+6. Blending in
+7. Accessibility essentials
+8. Unit & E2E Testing
 
-## Getting Started
+---
+
+<details open>
+  <summary><strong>Table of Contents</strong></summary>
+
+- React Native Essentials
+  - [Chapter Docs](./docs/chapters/chapter01.md)
+  - [Quick Start](#quick-start)
+  - [Troubleshooting](#troubleshooting)
+  - [Learn More](#learn-more)
+
+---
+
+## Quick Start
+
+For the full instructions on how to setup your environment for React Native development, head on over to our [React Native Essentials Starter Pack Environment Setup](https://github.com/infinitered/ReactNativeEssentialsStarterPack/blob/main/docs/environment-setup-guide.md) doc (be sure to also set up either your iOS Simulator and/or Android Emulator).
+
+1. Run the project setup script:
 
 ```bash
-npm install
+./scripts/setup
+```
+
+2. Start the metro bundler:
+
+```bash
 npm run start
 ```
 
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
+3. Build in dev mode:
+
+- Android
+
+  ```bash
+  npm run android
+  ```
+
+- iOS
+
+  ```bash
+  npm run ios
+  ```
+
+4. Build for your device:
+
+- [Android link](./docs/simulators-setup.md#yarn-android)
+- [iOS link](./docs/simulators-setup.md#launching-a-specific-simulator)
+
+5. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the 8 with the chapter you'd like to skip to). This will copy the contents of the given chapter to your app folder.
 
 ```bash
-npm run build:ios:sim # build for ios simulator
-npm run build:ios:dev # build for ios device
-npm run build:ios:prod # build for ios device
+./scripts/skipTo 8
 ```
 
-### `./assets` directory
+## Troubleshooting
 
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-```tree
-assets
-├── icons
-└── images
-```
+## Learn More
 
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+To learn more about React Native, take a look at the following resources:
 
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
-
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
-
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
-
-How to use your `icon` or `image` assets:
-
-```typescript
-import { Image } from 'react-native';
-
-const MyComponent = () => {
-  return (
-    <Image source={require('assets/images/my_image.png')} />
-  );
-};
-```
-
-## Running Maestro end-to-end tests
-
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
-
-## Next Steps
-
-### Ignite Cookbook
-
-[Ignite Cookbook](https://ignitecookbook.com/) is an easy way for developers to browse and share code snippets (or “recipes”) that actually work.
-
-### Upgrade Ignite boilerplate
-
-Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite) to learn how to upgrade your Ignite project.
-
-## Community
-
-⭐️ Help us out by [starring on GitHub](https://github.com/infinitered/ignite), filing bug reports in [issues](https://github.com/infinitered/ignite/issues) or [ask questions](https://github.com/infinitered/ignite/discussions).
-
-💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
-
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Set Up Your Environment](https://docs.expo.dev/get-started/set-up-your-environment/?mode=development-build&platform=android&device=physical) - an **overview** from Expo on setting up your development environment
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
