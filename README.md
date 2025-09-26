@@ -47,7 +47,7 @@ For the full instructions on how to setup your environment for React Native deve
 2. Start the metro bundler:
 
 ```bash
-npm run start
+pnpm run start
 ```
 
 3. Build in dev mode:
@@ -55,13 +55,19 @@ npm run start
 - Android
 
   ```bash
-  npm run android
+  pnpm run android
   ```
 
 - iOS
 
   ```bash
-  npm run ios
+  pnpm run ios
+  ```
+
+- Web
+
+  ```bash
+  pnpm run web
   ```
 
 4. Build for your device:
