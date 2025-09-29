@@ -2,24 +2,15 @@
 
 Welcome to the React Native Essentials workshop! This hands-on workshop will go through the fundamentals of React Native from “init-ing” our application to getting our app to looking good and functional. It will wrap up with a discussion on more “intermediate” topics and address any questions the class may have. The objective of this workshop is to help React developers take the plunge into mobile and show the similarities between the two platforms.
 
-Table of contents (subject to change):
+## Table of Contents
 
-1. Overview
-   1. Setting up the Environment
-   2. Working with dependencies
-   3. Application Architecture
-   4. Looking Under the Hood
-2. Debugging
-3. Visual Concepts
-   1. Making Stuff Look Good (custom components, styling, and layout)
-4. Navigating Plus
-5. Meet the List
-   1. Long List Concepts
-   2. Section Lists
-   3. API Data
-6. Blending in
-7. Accessibility essentials
-8. Unit & E2E Testing
+- **[Chapter 0: Debugging](./docs/chapters/chapter00.md)** - Essential debugging tools and techniques
+- **[Chapter 1: Visual Concepts](./docs/chapters/chapter01.md)** - React Native UI basics and styling  
+- **[Chapter 2: Navigation Plus](./docs/chapters/chapter02.md)** - Expo Router, stack navigation, and deep linking
+- **[Chapter 3: Meet the List](./docs/chapters/chapter03.md)** - List components, data loading, and performance
+- **[Chapter 4: Blending In](./docs/chapters/chapter04.md)** - Theme system and adaptive theming
+- **[Chapter 5: Accessibility](./docs/chapters/chapter05.md)** - Inclusive design and assistive technologies
+- **[Chapter 6: Unit and E2E Testing](./docs/chapters/chapter06.md)** - Comprehensive testing strategies
 
 ---
 
@@ -27,7 +18,7 @@ Table of contents (subject to change):
   <summary><strong>Table of Contents</strong></summary>
 
 - React Native Essentials
-  - [Chapter Docs](./docs/chapters/chapter01.md)
+  - [Documentation](./docs/README.md)
   - [Quick Start](#quick-start)
   - [Troubleshooting](#troubleshooting)
   - [Learn More](#learn-more)
@@ -41,13 +32,13 @@ For the full instructions on how to setup your environment for React Native deve
 1. Run the project setup script:
 
 ```bash
-./scripts/setup
+pnpm run setup
 ```
 
 2. Start the metro bundler:
 
 ```bash
-pnpm run start
+pnpm start
 ```
 
 3. Build in dev mode:
@@ -75,10 +66,10 @@ pnpm run start
 - [Android link](./docs/simulators-setup.md#yarn-android)
 - [iOS link](./docs/simulators-setup.md#launching-a-specific-simulator)
 
-5. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the 8 with the chapter you'd like to skip to). This will copy the contents of the given chapter to your app folder.
+5. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the number with the chapter you'd like to skip to). This will copy the contents of the given chapter to your src folder.
 
 ```bash
-./scripts/skipTo 8
+pnpm run skipTo 3
 ```
 
 ## Troubleshooting
