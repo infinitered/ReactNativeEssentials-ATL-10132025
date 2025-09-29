@@ -5,10 +5,10 @@ Welcome to the React Native Essentials workshop! This hands-on workshop will go 
 ## Table of Contents
 
 - **[Chapter 0: Debugging](./docs/chapters/chapter00.md)** - Essential debugging tools and techniques
-- **[Chapter 1: Visual Concepts](./docs/chapters/chapter01.md)** - Design system, theming, and reusable components  
+- **[Chapter 1: Visual Concepts](./docs/chapters/chapter01.md)** - React Native UI basics and styling  
 - **[Chapter 2: Navigation Plus](./docs/chapters/chapter02.md)** - Expo Router, stack navigation, and deep linking
 - **[Chapter 3: Meet the List](./docs/chapters/chapter03.md)** - List components, data loading, and performance
-- **[Chapter 4: Blending In](./docs/chapters/chapter04.md)** - Adaptive theming and system integration
+- **[Chapter 4: Blending In](./docs/chapters/chapter04.md)** - Theme system and adaptive theming
 - **[Chapter 5: Accessibility](./docs/chapters/chapter05.md)** - Inclusive design and assistive technologies
 - **[Chapter 6: Unit and E2E Testing](./docs/chapters/chapter06.md)** - Comprehensive testing strategies
 
