@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -e 
 
-react-native-asset
+# Expo postinstall script
+echo "Running Expo postinstall tasks..."
 
-bundle
+# No react-native-asset needed for Expo
+# No bundle needed for Expo
+# No pod install needed for Expo managed workflow
 
-# Install pods
-(cd ios && bundle exec pod repo update && bundle exec pod install)
+echo "Postinstall completed successfully!"
