@@ -2,12 +2,12 @@
 set -e 
 
 # Software
-software=("ruby" "node" "yarn" "java" "xcode-select" "adb")
+software=("ruby" "node" "pnpm" "java" "xcode-select" "adb")
 
 # Version numbers (inclusive)
-ruby=("3.0.0" "3.3.0")
-node=("22.0.0")
-yarn=("4.0.0")
+ruby=("3.0.0" "3.5.0")
+node=("20.19.5")
+pnpm=("8.0.0" "10.0.0")
 java=("17.0.0")
 
 success() {
