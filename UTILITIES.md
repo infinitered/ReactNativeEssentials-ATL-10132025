@@ -37,11 +37,11 @@ Several utility scripts have been migrated to help with development workflow:
 
 ### Available Scripts
 
-- **`npm run clean`** - Clean all build artifacts and caches
-- **`npm run setup`** - Run project setup (installs dependencies and runs postinstall)
-- **`npm run skipTo <chapter>`** - Skip to a specific chapter (requires solutions directory)
-- **`npm run verify-environment`** - Verify development environment setup
-- **`npm run postinstall`** - Post-installation setup tasks
+- **`pnpm run clean`** - Clean all build artifacts and caches
+- **`pnpm run setup`** - Run project setup (installs dependencies and runs postinstall)
+- **`pnpm run skipTo <chapter>`** - Skip to a specific chapter (requires solutions directory)
+- **`pnpm run verify-environment`** - Verify development environment setup
+- **`pnpm run postinstall`** - Post-installation setup tasks
 
 ### Chapter Navigation (skipTo)
 
@@ -49,7 +49,7 @@ The `skipTo` script allows you to jump to specific chapters during training:
 
 ```bash
 # Skip to chapter 3
-npm run skipTo 3
+pnpm run skipTo 3
 ```
 
 **Note**: This script requires a `solutions/` directory with chapter folders (e.g., `solutions/chapter1/`, `solutions/chapter2/`, etc.).

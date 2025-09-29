@@ -37,17 +37,17 @@ This workshop is designed to help React developers transition to mobile developm
 
 1. **Environment Setup**: Run the environment verification script
    ```bash
-   npm run verify-environment
+   pnpm run verify-environment
    ```
 
 2. **Project Setup**: Install dependencies and configure the project
    ```bash
-   npm run setup
+   pnpm run setup
    ```
 
 3. **Start Development**: Begin with the first chapter
    ```bash
-   npm start
+   pnpm start
    ```
 
 ### Workshop Structure

@@ -32,13 +32,13 @@ For the full instructions on how to setup your environment for React Native deve
 1. Run the project setup script:
 
 ```bash
-npm run setup
+pnpm run setup
 ```
 
 2. Start the metro bundler:
 
 ```bash
-npm start
+pnpm start
 ```
 
 3. Build in dev mode:
@@ -46,19 +46,19 @@ npm start
 - Android
 
   ```bash
-  npm run android
+  pnpm run android
   ```
 
 - iOS
 
   ```bash
-  npm run ios
+  pnpm run ios
   ```
 
 - Web
 
   ```bash
-  npm run web
+  pnpm run web
   ```
 
 4. Build for your device:
@@ -69,7 +69,7 @@ npm start
 5. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the number with the chapter you'd like to skip to). This will copy the contents of the given chapter to your src folder.
 
 ```bash
-npm run skipTo 3
+pnpm run skipTo 3
 ```
 
 ## Troubleshooting
