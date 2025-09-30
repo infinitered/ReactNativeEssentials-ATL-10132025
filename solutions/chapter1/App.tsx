@@ -1,8 +1,8 @@
-import React from 'react'
-import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context'
-import { GamesListScreen } from './screens/GamesListScreen'
+import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
-const App = (): React.JSX.Element => {
+import { GamesListScreen } from "./screens/GamesListScreen"
+
+const App = (): React.JSX.Element | null => {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <GamesListScreen />
