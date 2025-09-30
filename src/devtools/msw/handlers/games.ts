@@ -1,24 +1,21 @@
-import { rest } from 'msw'
+import { rest } from "msw"
 
-import type { PostGamesParams } from '../../src/services/types'
-import { gameData, sliceGames, sortGames } from '../utils/prepareGameData'
+import type { PostGamesParams } from "../../../services/types"
+import { gameData, sliceGames, sortGames } from "../utils/prepareGameData"
 
-export const games = rest.post(
-  'https://api.retrogames.dev/games',
-  async (req, res, ctx) => {
-    const body = await req.json()
+export const games = rest.post("https://api.retrogames.dev/games", async (req, res, ctx) => {
+  const body = await req.json()
 
-    const opts: Required<PostGamesParams> = {
-      sortBy: 'releaseDate',
-      sortOrder: 'asc',
-      limit: 100,
-      offset: 0,
-      ...(body as object),
-    }
+  const opts: Required<PostGamesParams> = {
+    sortBy: "releaseDate",
+    sortOrder: "asc",
+    limit: 100,
+    offset: 0,
+    ...(body as object),
+  }
 
-    const sorted = sortGames(gameData, opts)
-    const sliced = sliceGames(sorted, opts)
+  const sorted = sortGames(gameData, opts)
+  const sliced = sliceGames(sorted, opts)
 
-    return res(ctx.status(200), ctx.json(sliced))
-  },
-)
+  return res(ctx.status(200), ctx.json(sliced))
+})
