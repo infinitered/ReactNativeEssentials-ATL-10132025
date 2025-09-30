@@ -1,11 +1,10 @@
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-import { ScrollView } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+/* eslint-disable react-native/no-inline-styles */
+import { ScrollView, ViewStyle } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { colors, sizes } from '../../../shared/theme'
-import { games } from '../../../shared/utils/sampleGames'
-import { Card } from '../components/Card'
+import { Card } from "../components/Card"
+import { sizes, colors } from "../theme"
+import { games } from "../utils/sampleGames"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom, top: paddingTop } = useSafeAreaInsets()

@@ -1,12 +1,8 @@
-import React from 'react'
-import type {
-  StyleProp,
-  TextProps as RNTextProps,
-  TextStyle,
-} from 'react-native'
-import { Text as RNText } from 'react-native'
+import type { StyleProp, TextProps as RNTextProps, TextStyle } from "react-native"
+// eslint-disable-next-line no-restricted-imports
+import { Text as RNText } from "react-native"
 
-import { colors, fonts } from '../../../shared/theme'
+import { colors, fonts } from "../theme"
 
 interface TextProps extends RNTextProps {
   /**
@@ -20,13 +16,7 @@ interface TextProps extends RNTextProps {
 }
 
 export const Text = (props: TextProps) => {
-  const {
-    text,
-    children,
-    preset = 'body',
-    style: $styleOverride,
-    ...RestTextProps
-  } = props
+  const { text, children, preset = "body", style: $styleOverride, ...RestTextProps } = props
 
   const content = text ?? children
 

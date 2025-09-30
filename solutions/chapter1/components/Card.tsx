@@ -1,10 +1,9 @@
-import React from 'react'
-import type { ImageStyle, ViewStyle } from 'react-native'
-import { Image, View } from 'react-native'
+import type { ImageStyle, ViewStyle } from "react-native"
+import { Image, View } from "react-native"
 
-import { colors, sizes } from '../../../shared/theme'
-import { Icon } from './Icon'
-import { Text } from './Text'
+import { Icon } from "./Icon"
+import { Text } from "./Text"
+import { colors, sizes } from "../theme"
 
 interface CardProps {
   name: string
@@ -20,7 +19,17 @@ export const Card = (props: CardProps) => {
     <View>
       <View style={$reflection} />
       <View style={$card}>
-        <Image source={{ uri: imageUrl }} style={$image} />
+        <Image
+          source={{ uri: imageUrl }}
+          style={$image}
+          onError={(error) =>
+            console.log("Image load error:", error.nativeEvent.error, "URL:", imageUrl)
+          }
+          onLoad={() => console.log("Image loaded successfully:", imageUrl)}
+          onLoadStart={() => console.log("Image load started:", imageUrl)}
+          onLoadEnd={() => console.log("Image load ended:", imageUrl)}
+          resizeMode="cover"
+        />
         <View style={$contentWrapper}>
           <Text numberOfLines={1} preset="headline2" text={name} />
 
@@ -30,7 +39,7 @@ export const Card = (props: CardProps) => {
           </View>
 
           <View style={$ratingContainer}>
-            <Text preset="label2" text={'Rating:'} />
+            <Text preset="label2" text={"Rating:"} />
             {Array.from({ length: rating }).map((_, i) => (
               <Icon color={colors.tint.accent} key={i} name="star" />
             ))}
@@ -46,7 +55,7 @@ const $card: ViewStyle = {
   borderColor: colors.border.base,
   borderRadius: sizes.radius.md,
   borderWidth: sizes.border.sm,
-  flexDirection: 'row',
+  flexDirection: "row",
   padding: sizes.spacing.md,
   columnGap: sizes.spacing.md,
 }
@@ -55,19 +64,20 @@ const $reflection: ViewStyle = {
   backgroundColor: colors.background.reflection,
   borderRadius: sizes.radius.md,
   bottom: -6,
-  height: '100%',
-  position: 'absolute',
+  height: "100%",
+  position: "absolute",
   right: -6,
-  width: '100%',
+  width: "100%",
 }
 
 const $contentWrapper: ViewStyle = {
   flex: 1,
-  justifyContent: 'center',
+  justifyContent: "center",
   rowGap: sizes.spacing.xs,
 }
 
 const $image: ImageStyle = {
+  backgroundColor: colors.background.accent,
   borderColor: colors.border.base,
   borderRadius: sizes.radius.sm,
   borderWidth: sizes.border.sm,
@@ -76,13 +86,13 @@ const $image: ImageStyle = {
 }
 
 const $contentRow: ViewStyle = {
-  flexDirection: 'row',
+  flexDirection: "row",
   columnGap: sizes.spacing.xs,
-  alignItems: 'center',
+  alignItems: "center",
 }
 
 const $ratingContainer: ViewStyle = {
-  flexDirection: 'row',
+  flexDirection: "row",
   columnGap: sizes.spacing.xs,
-  alignItems: 'center',
+  alignItems: "center",
 }
