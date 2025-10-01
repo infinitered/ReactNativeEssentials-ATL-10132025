@@ -10,9 +10,11 @@ Our design team has provided us with this [figma design](https://www.figma.com/d
 
 [Figma Design](https://www.figma.com/design/6Ip46lkbe5Ms1FvccKwOAd/Essentials-Workshop?node-id=728-327&p=f&t=pLCTfl2m8Jx1SkMF-0)
 
+Note: This project uses Expo Router. Routes live under `src/app`. The initial route (`src/app/index.tsx`) renders `src/screens/GamesListScreen.tsx`.
+
 ## Tasks for this section [code-a-long]
 
-### 1. Update `app/screens/GamesListScreen.tsx` to show a list of games
+### 1. Update `src/screens/GamesListScreen.tsx` to show a list of games
 
 Steps:
 
