@@ -1,8 +1,9 @@
 import type { TextStyle, ViewStyle } from "react-native"
 import { View } from "react-native"
 
+import { colors, sizes } from "@shared/theme"
+
 import { Text } from "@/components/Text"
-import { colors, sizes } from "@/theme"
 
 export const GamesListScreen = () => {
   return (
