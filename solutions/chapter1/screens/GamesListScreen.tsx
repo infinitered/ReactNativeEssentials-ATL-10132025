@@ -3,8 +3,8 @@ import { ScrollView, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Card } from "../components/Card"
-import { sizes, colors } from "../theme"
-import { games } from "../utils/sampleGames"
+import { sizes, colors } from "../shared/theme"
+import { games } from "../shared/utils/sampleGames"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom, top: paddingTop } = useSafeAreaInsets()

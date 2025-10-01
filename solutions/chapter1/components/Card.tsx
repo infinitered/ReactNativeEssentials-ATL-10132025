@@ -3,7 +3,7 @@ import { Image, View } from "react-native"
 
 import { Icon } from "./Icon"
 import { Text } from "./Text"
-import { colors, sizes } from "../theme"
+import { colors, sizes } from "../shared/theme"
 
 interface CardProps {
   name: string
@@ -19,17 +19,7 @@ export const Card = (props: CardProps) => {
     <View>
       <View style={$reflection} />
       <View style={$card}>
-        <Image
-          source={{ uri: imageUrl }}
-          style={$image}
-          onError={(error) =>
-            console.log("Image load error:", error.nativeEvent.error, "URL:", imageUrl)
-          }
-          onLoad={() => console.log("Image loaded successfully:", imageUrl)}
-          onLoadStart={() => console.log("Image load started:", imageUrl)}
-          onLoadEnd={() => console.log("Image load ended:", imageUrl)}
-          resizeMode="cover"
-        />
+        <Image source={{ uri: imageUrl }} style={$image} resizeMode="cover" />
         <View style={$contentWrapper}>
           <Text numberOfLines={1} preset="headline2" text={name} />
 

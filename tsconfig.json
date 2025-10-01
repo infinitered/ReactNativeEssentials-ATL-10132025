@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@shared/*": ["./shared/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types"]
   },
@@ -29,6 +30,6 @@
       "module": "commonjs"
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
-  "exclude": ["node_modules", "test/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
+  "exclude": ["node_modules", "test/**/*", "solutions/**", "app.config.ts", "src/devtools/**"]
 }
