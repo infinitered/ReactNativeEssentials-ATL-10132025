@@ -30,6 +30,22 @@
       "module": "commonjs"
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
-  "exclude": ["node_modules", "test/**/*", "solutions/**", "app.config.ts", "src/devtools/**"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "shared/theme/**/*.ts",
+    "shared/utils/**/*.ts",
+    "shared/services/**/*.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "test/**/*",
+    "solutions/**",
+    "app.config.ts",
+    "src/devtools/**",
+    "shared/app/**",
+    "shared/devtools/**"
+  ]
 }

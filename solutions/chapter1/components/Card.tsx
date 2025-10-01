@@ -1,9 +1,10 @@
 import type { ImageStyle, ViewStyle } from "react-native"
 import { Image, View } from "react-native"
 
+import { colors, sizes } from "@shared/theme"
+
 import { Icon } from "./Icon"
 import { Text } from "./Text"
-import { colors, sizes } from "../shared/theme"
 
 interface CardProps {
   name: string
