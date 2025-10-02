@@ -27,10 +27,10 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
-# Remove existing src directory contents
-rm -rf "${APP_DIR:?}"/*
+# Remove existing src directory contents, but preserve shared imports path adjustments are handled via tsconfig
+find "$APP_DIR" -mindepth 1 -maxdepth 1 -not -name "shared" -exec rm -rf {} +
 
-# Copy chapter contents to src directory
+# Copy chapter contents to src directory while preserving shared at project root
 cp -r "$CHAPTER_DIR"/* "$APP_DIR/"
 
 # Find and replace import paths for Expo project structure

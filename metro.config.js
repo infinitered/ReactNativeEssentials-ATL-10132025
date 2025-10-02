@@ -1,6 +1,7 @@
 /* eslint-env node */
 // Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require("expo/metro-config")
+const path = require("path")
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname)
@@ -27,5 +28,12 @@ config.resolver.unstable_conditionNames = ["require", "default", "browser"]
 // This helps support certain popular third-party libraries
 // such as Firebase that use the extension cjs.
 config.resolver.sourceExts.push("cjs")
+
+// Support TS path aliases at runtime for native and web
+config.resolver.alias = {
+  "@": path.resolve(__dirname, "src"),
+  "@shared": path.resolve(__dirname, "shared"),
+  "@assets": path.resolve(__dirname, "assets"),
+}
 
 module.exports = config

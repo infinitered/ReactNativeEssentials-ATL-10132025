@@ -1,9 +1,9 @@
-import type { PostGamesParams } from '../../src/services/types'
-import rawData from '../mocks/games.json'
-import { camelCaseKeys } from './camelCaseKeys'
+import { camelCaseKeys } from "./camelCaseKeys"
+import type { PostGamesParams } from "../../../services/types"
+import rawData from "../mocks/games.json"
 
-const transformedData = rawData.map(g => {
-  let game = g as Record<string, any>
+const transformedData = rawData.map((g) => {
+  const game = g as Record<string, any>
 
   game.totalRatingStars = Math.round((g.total_rating / 100) * 5)
   game.cover.imageUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg`
@@ -14,7 +14,7 @@ const transformedData = rawData.map(g => {
   })
 
   game.releaseDate = g.release_dates
-    .filter(r => typeof r.y === 'number' && r.y > 0)
+    .filter((r) => typeof r.y === "number" && r.y > 0)
     .sort((a, b) => a.date! - b.date!)[0]
 
   return game
@@ -22,20 +22,17 @@ const transformedData = rawData.map(g => {
 
 export const gameData = camelCaseKeys(transformedData)
 
-export function sortGames(
-  data: typeof gameData,
-  opts: Required<PostGamesParams>,
-) {
+export function sortGames(data: typeof gameData, opts: Required<PostGamesParams>) {
   const { sortBy, sortOrder } = opts
 
   return data.sort((a, b) => {
-    const order = sortOrder === 'asc' ? [a, b] : [b, a]
+    const order = sortOrder === "asc" ? [a, b] : [b, a]
 
-    if (sortBy === 'name') {
+    if (sortBy === "name") {
       return order[0][sortBy].localeCompare(order[1][sortBy])
     }
 
-    if (sortBy === 'releaseDate') {
+    if (sortBy === "releaseDate") {
       return order[0][sortBy].date - order[1][sortBy].date
     }
 
@@ -43,15 +40,12 @@ export function sortGames(
   })
 }
 
-export function sliceGames(
-  data: typeof gameData,
-  opts: Required<PostGamesParams>,
-) {
+export function sliceGames(data: typeof gameData, opts: Required<PostGamesParams>) {
   const { limit, offset } = opts
 
   return data.slice(offset, offset + limit)
 }
 
 export function findGameById(id: number) {
-  return gameData.find(g => g.id === id)
+  return gameData.find((g) => g.id === id)
 }

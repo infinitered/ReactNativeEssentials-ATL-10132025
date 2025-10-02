@@ -9,12 +9,12 @@ import { ArgType } from "reactotron-core-client"
 import { ReactotronReactNative } from "reactotron-react-native"
 import mmkvPlugin from "reactotron-react-native-mmkv"
 
-import { storage } from "@/utils/storage"
+import { storage } from "@shared/utils/storage"
 
 import { Reactotron } from "./ReactotronClient"
 
 const reactotron = Reactotron.configure({
-  name: require("../../package.json").name,
+  name: require("../../../package.json").name,
   onConnect: () => {
     /** since this file gets hot reloaded, let's clear the past logs every time we connect */
     Reactotron.clear()
