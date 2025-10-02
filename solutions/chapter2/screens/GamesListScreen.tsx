@@ -16,7 +16,7 @@ export const GamesListScreen = () => {
       contentContainerStyle={[{ paddingBottom, paddingTop }, $contentContainer]}
       style={$list}>
       {games.map(({ id, name, totalRatingStars, releaseDate, cover }) => (
-        <Link asChild href={`/${id}`} key={id}>
+        <Link asChild href={`/games/${id}`} key={id}>
           <Pressable>
             <Card
               name={name}
