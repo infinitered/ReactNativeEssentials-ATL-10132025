@@ -6,19 +6,26 @@ Run `./scripts/skipTo 2` to copy the solution to your main app, otherwise you ma
 
 This chapter covers navigation in React Native using Expo Router and other navigation patterns.
 
-## Learning Objectives
+## Resources
 
-- Master Expo Router for navigation
-- Implement stack and tab navigation
-- Handle deep linking
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- [Dynamic Routes](https://docs.expo.dev/develop/dynamic-routes/)
+- [Tabs](https://docs.expo.dev/router/advanced/tabs/)
 
-## Tasks
+## Figma Design
 
-*Coming soon - detailed tasks will be added here*
+- [Chapter 2: Navigation Plus](https://www.figma.com/design/6Ip46lkbe5Ms1FvccKwOAd/Essentials-Workshop?node-id=728-541&p=f&t=rW7HvACyFsZC8UMg-0)
+- [Game Details - DIY](https://www.figma.com/design/6Ip46lkbe5Ms1FvccKwOAd/Essentials-Workshop?node-id=728-833&p=f&t=rW7HvACyFsZC8UMg-0)
 
-## Key Concepts
+## DIY Tasks
 
-*Coming soon - key concepts will be added here*
+1. Update the `GameDetailsScreen` to show the game details per the [figma design](https://www.figma.com/design/6Ip46lkbe5Ms1FvccKwOAd/Essentials-Workshop?node-id=728-833&p=f&t=rW7HvACyFsZC8UMg-0)
+   a. NOTE: the sample game list can be found in `@shared/utils/sampleGames`
+2. Add image carousel for `screenshots` in the `GameDetailsScreen`
+
+### Optional
+
+1. Update the app to be tab based
 
 ---
 
