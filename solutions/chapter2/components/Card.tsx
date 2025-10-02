@@ -3,7 +3,7 @@ import { Image, View } from "react-native"
 
 import { colors, sizes } from "@shared/theme"
 
-import { Icon } from "./Icon"
+import { Rating } from "./Rating"
 import { Text } from "./Text"
 
 interface CardProps {
@@ -29,12 +29,7 @@ export const Card = (props: CardProps) => {
             <Text preset="title2" text={releaseDate} />
           </View>
 
-          <View style={$ratingContainer}>
-            <Text preset="label2" text={"Rating:"} />
-            {Array.from({ length: rating }).map((_, i) => (
-              <Icon color={colors.tint.accent} key={i} name="star" />
-            ))}
-          </View>
+          <Rating rating={rating} />
         </View>
       </View>
     </View>
@@ -77,12 +72,6 @@ const $image: ImageStyle = {
 }
 
 const $contentRow: ViewStyle = {
-  flexDirection: "row",
-  columnGap: sizes.spacing.xs,
-  alignItems: "center",
-}
-
-const $ratingContainer: ViewStyle = {
   flexDirection: "row",
   columnGap: sizes.spacing.xs,
   alignItems: "center",
