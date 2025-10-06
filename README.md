@@ -5,7 +5,7 @@ Welcome to the React Native Essentials workshop! This hands-on workshop will go 
 ## Table of Contents
 
 - **[Chapter 0: Debugging](./docs/chapters/chapter00.md)** - Essential debugging tools and techniques
-- **[Chapter 1: Visual Concepts](./docs/chapters/chapter01.md)** - React Native UI basics and styling  
+- **[Chapter 1: Visual Concepts](./docs/chapters/chapter01.md)** - React Native UI basics and styling
 - **[Chapter 2: Navigation Plus](./docs/chapters/chapter02.md)** - Expo Router, stack navigation, and deep linking
 - **[Chapter 3: Meet the List](./docs/chapters/chapter03.md)** - List components, data loading, and performance
 - **[Chapter 4: Blending In](./docs/chapters/chapter04.md)** - Theme system and adaptive theming
@@ -35,13 +35,19 @@ For the full instructions on how to setup your environment for React Native deve
 pnpm run setup
 ```
 
-2. Start the metro bundler:
+2. **Configure RAWG API Key** (Required for Chapter 3+):
+   - Get a free API key from [RAWG.io](https://rawg.io/apidocs)
+   - Open `shared/services/api.ts`
+   - Replace `YOUR_RAWG_API_KEY_HERE` with your actual API key
+   - The app uses RAWG.io to fetch game data for the retro games list
+
+3. Start the metro bundler:
 
 ```bash
 pnpm start
 ```
 
-3. Build in dev mode:
+4. Build in dev mode:
 
 - Android
 
@@ -61,12 +67,12 @@ pnpm start
   pnpm run web
   ```
 
-4. Build for your device:
+5. Build for your device:
 
 - [Android link](./docs/simulators-setup.md#yarn-android)
 - [iOS link](./docs/simulators-setup.md#launching-a-specific-simulator)
 
-5. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the number with the chapter you'd like to skip to). This will copy the contents of the given chapter to your src folder.
+6. If you'd like to fast forward your assignment to a specific chapter, run this script (replacing the number with the chapter you'd like to skip to). This will copy the contents of the given chapter to your src folder.
 
 ```bash
 pnpm run skipTo 3

@@ -5,8 +5,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { colors, sizes } from "@shared/theme"
 import { games } from "@shared/utils/sampleGames"
 
-import { Rating } from "../components/Rating"
-import { Text } from "../components/Text"
+import { Rating } from "@/components/Rating"
+import { Text } from "@/components/Text"
 
 export const GameDetailsScreen = ({ gameId }: { gameId: string }) => {
   const { bottom: paddingBottom } = useSafeAreaInsets()

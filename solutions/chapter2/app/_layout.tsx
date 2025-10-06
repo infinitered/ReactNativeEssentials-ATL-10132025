@@ -1,7 +1,7 @@
 import { Stack } from "expo-router"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
-import { useWebFonts } from "../../shared/hooks/useWebFonts"
+import { useWebFonts } from "@shared/hooks/useWebFonts"
 
 export default function RootLayout() {
   const { loaded } = useWebFonts()

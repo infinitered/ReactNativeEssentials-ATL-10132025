@@ -2,13 +2,13 @@ import React, { useCallback, useEffect } from "react"
 import type { ViewStyle } from "react-native"
 import { FlatList, Pressable } from "react-native"
 import { Link, useRouter } from "expo-router"
+import { Card } from "@components/Card"
+import { Empty } from "@components/Empty"
+import { useGlobalState } from "@services/state"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { api } from "../../../shared/services/api"
-import { colors, sizes } from "../../../shared/theme"
-import { Card } from "../components/Card"
-import { Empty } from "../components/Empty"
-import { useGlobalState } from "../services/state"
+import { api } from "@shared/services/api"
+import { colors, sizes } from "@shared/theme"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom } = useSafeAreaInsets()

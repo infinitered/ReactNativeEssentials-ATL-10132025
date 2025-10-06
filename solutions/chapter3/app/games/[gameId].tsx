@@ -1,11 +1,9 @@
 import { Platform, Pressable, ViewStyle } from "react-native"
 import { router, Stack, useLocalSearchParams } from "expo-router"
+import { Icon, IconProps } from "@components/Icon"
+import { GameDetailsScreen } from "@screens/GameDetailsScreen"
 
 import { colors, fonts, sizes } from "@shared/theme"
-
-import { Icon, IconProps } from "@/components/Icon"
-
-import { GameDetailsScreen } from "../../screens/GameDetailsScreen"
 
 export default function GameDetails() {
   const { gameId } = useLocalSearchParams<{ gameId: string }>()

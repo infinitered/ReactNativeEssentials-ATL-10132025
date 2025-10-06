@@ -31,9 +31,13 @@ config.resolver.sourceExts.push("cjs")
 
 // Support TS path aliases at runtime for native and web
 config.resolver.alias = {
-  "@": path.resolve(__dirname, "src"),
+  "@": path.resolve(__dirname, "."),
   "@shared": path.resolve(__dirname, "shared"),
+  "@src": path.resolve(__dirname, "src"),
   "@assets": path.resolve(__dirname, "assets"),
+  "@components": path.resolve(__dirname, "src/components"),
+  "@screens": path.resolve(__dirname, "src/screens"),
+  "@services": path.resolve(__dirname, "src/services"),
 }
 
 module.exports = config

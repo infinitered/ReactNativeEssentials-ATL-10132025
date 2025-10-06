@@ -12,10 +12,16 @@ export const games: Array<Game> = [
       {
         id: 8,
         name: "Platform",
+        slug: "platform",
+        games_count: 0,
+        image_background: "",
       },
       {
         id: 31,
         name: "Adventure",
+        slug: "adventure",
+        games_count: 0,
+        image_background: "",
       },
     ],
     involvedCompanies: [
@@ -24,6 +30,9 @@ export const games: Array<Game> = [
         company: {
           id: 70,
           name: "Nintendo",
+          slug: "nintendo",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -33,6 +42,9 @@ export const games: Array<Game> = [
         company: {
           id: 32471,
           name: "Nintendo R&D4",
+          slug: "nintendo-rd4",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: false,
@@ -42,6 +54,9 @@ export const games: Array<Game> = [
         company: {
           id: 33804,
           name: "Playtronic",
+          slug: "playtronic",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -98,14 +113,23 @@ export const games: Array<Game> = [
       {
         id: 5,
         name: "Shooter",
+        slug: "shooter",
+        games_count: 0,
+        image_background: "",
       },
       {
         id: 8,
         name: "Platform",
+        slug: "platform",
+        games_count: 0,
+        image_background: "",
       },
       {
         id: 31,
         name: "Adventure",
+        slug: "adventure",
+        games_count: 0,
+        image_background: "",
       },
     ],
     involvedCompanies: [
@@ -114,6 +138,9 @@ export const games: Array<Game> = [
         company: {
           id: 212,
           name: "Sunstorm Interactive",
+          slug: "sunstorm-interactive",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: false,
@@ -123,6 +150,9 @@ export const games: Array<Game> = [
         company: {
           id: 224,
           name: "3D Realms",
+          slug: "3d-realms",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: false,
@@ -132,6 +162,9 @@ export const games: Array<Game> = [
         company: {
           id: 4493,
           name: "Spawn Studios",
+          slug: "spawn-studios",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: true,
@@ -141,6 +174,9 @@ export const games: Array<Game> = [
         company: {
           id: 4494,
           name: "Arush Entertainment",
+          slug: "arush-entertainment",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -150,6 +186,9 @@ export const games: Array<Game> = [
         company: {
           id: 1134,
           name: "Interceptor Entertainment",
+          slug: "interceptor-entertainment",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -159,6 +198,9 @@ export const games: Array<Game> = [
         company: {
           id: 53,
           name: "Microsoft Game Studios",
+          slug: "microsoft-game-studios",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -168,6 +210,9 @@ export const games: Array<Game> = [
         company: {
           id: 188,
           name: "Apogee Software",
+          slug: "apogee-software",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -235,10 +280,16 @@ export const games: Array<Game> = [
       {
         id: 8,
         name: "Platform",
+        slug: "platform",
+        games_count: 0,
+        image_background: "",
       },
       {
         id: 31,
         name: "Adventure",
+        slug: "adventure",
+        games_count: 0,
+        image_background: "",
       },
     ],
     involvedCompanies: [
@@ -247,6 +298,9 @@ export const games: Array<Game> = [
         company: {
           id: 395,
           name: "Sonic Team",
+          slug: "sonic-team",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: false,
@@ -256,6 +310,9 @@ export const games: Array<Game> = [
         company: {
           id: 1444,
           name: "Sega Technical Institute",
+          slug: "sega-technical-institute",
+          games_count: 0,
+          image_background: "",
         },
         developer: true,
         publisher: false,
@@ -265,6 +322,9 @@ export const games: Array<Game> = [
         company: {
           id: 112,
           name: "Sega",
+          slug: "sega",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: false,
@@ -274,6 +334,9 @@ export const games: Array<Game> = [
         company: {
           id: 112,
           name: "Sega",
+          slug: "sega",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,
@@ -283,6 +346,9 @@ export const games: Array<Game> = [
         company: {
           id: 23993,
           name: "Tec Toy",
+          slug: "tec-toy",
+          games_count: 0,
+          image_background: "",
         },
         developer: false,
         publisher: true,

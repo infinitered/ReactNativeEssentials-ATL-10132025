@@ -1,12 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Pressable, ScrollView, ViewStyle } from "react-native"
 import { Link } from "expo-router"
+import { Card } from "@components/Card"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { sizes, colors } from "@shared/theme"
 import { games } from "@shared/utils/sampleGames"
-
-import { Card } from "../components/Card"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom, top: paddingTop } = useSafeAreaInsets()

@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react"
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native"
 import { Image, ScrollView, View } from "react-native"
+import { Empty } from "@components/Empty"
+import { Rating } from "@components/Rating"
+import { Text } from "@components/Text"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { api } from "@/shared/services/api"
-import type { Game } from "@/shared/services/types"
-import { colors, sizes } from "@/shared/theme"
-
-import { Empty } from "../components/Empty"
-import { Rating } from "../components/Rating"
-import { Text } from "../components/Text"
+import { api } from "@shared/services/api"
+import type { Game } from "@shared/services/types"
+import { colors, sizes } from "@shared/theme"
 
 interface GameDetailsScreenProps {
   gameId?: number
