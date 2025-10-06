@@ -1,23 +1,23 @@
-import React from 'react'
-import type { ImageStyle, ViewStyle } from 'react-native'
-import { Image, Pressable, View } from 'react-native'
+import React from "react"
+import type { ImageStyle, ViewStyle } from "react-native"
+import { Image, View } from "react-native"
 
-import { colors, sizes } from '../../../shared/theme'
-import { Rating } from './Rating'
-import { Text } from './Text'
+import { colors, sizes } from "@/shared/theme"
+
+import { Rating } from "./Rating"
+import { Text } from "./Text"
 
 interface CardProps {
   name: string
   imageUrl: string
   releaseDate: string
   rating: number
-  onPress: () => void
 }
 
 export const Card = (props: CardProps) => {
-  const { name, imageUrl, releaseDate, rating = 0, onPress } = props
+  const { name, imageUrl, releaseDate, rating = 0 } = props
   return (
-    <Pressable onPress={onPress}>
+    <View>
       <View style={$reflection} />
       <View style={$card}>
         <Image source={{ uri: imageUrl }} style={$image} />
@@ -32,7 +32,7 @@ export const Card = (props: CardProps) => {
           <Rating rating={rating} />
         </View>
       </View>
-    </Pressable>
+    </View>
   )
 }
 
@@ -41,7 +41,7 @@ const $card: ViewStyle = {
   borderColor: colors.border.base,
   borderRadius: sizes.radius.md,
   borderWidth: sizes.border.sm,
-  flexDirection: 'row',
+  flexDirection: "row",
   padding: sizes.spacing.md,
   columnGap: sizes.spacing.md,
 }
@@ -50,15 +50,15 @@ const $reflection: ViewStyle = {
   backgroundColor: colors.background.reflection,
   borderRadius: sizes.radius.md,
   bottom: -6,
-  height: '100%',
-  position: 'absolute',
+  height: "100%",
+  position: "absolute",
   right: -6,
-  width: '100%',
+  width: "100%",
 }
 
 const $contentWrapper: ViewStyle = {
   flex: 1,
-  justifyContent: 'center',
+  justifyContent: "center",
   rowGap: sizes.spacing.xs,
 }
 
@@ -71,7 +71,7 @@ const $image: ImageStyle = {
 }
 
 const $contentRow: ViewStyle = {
-  flexDirection: 'row',
+  flexDirection: "row",
   columnGap: sizes.spacing.xs,
-  alignItems: 'center',
+  alignItems: "center",
 }

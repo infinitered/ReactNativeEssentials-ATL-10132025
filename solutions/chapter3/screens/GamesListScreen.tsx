@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react"
 import type { ViewStyle } from "react-native"
-import { FlatList } from "react-native"
-import { useRouter } from "expo-router"
+import { FlatList, Pressable } from "react-native"
+import { Link, useRouter } from "expo-router"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { api } from "../../../shared/services/api"
@@ -34,21 +34,16 @@ export const GamesListScreen = () => {
       contentContainerStyle={[{ paddingBottom }, $contentContainer]}
       ListEmptyComponent={<Empty />}
       renderItem={({ item }) => (
-        <Card
-          onPress={() => {
-            router.push({
-              pathname: "/game-details",
-              params: {
-                gameId: String(item.id),
-                name: item.name,
-              },
-            })
-          }}
-          name={item.name}
-          rating={item.totalRatingStars}
-          releaseDate={item.releaseDate.human}
-          imageUrl={item.cover.imageUrl}
-        />
+        <Link asChild href={`/games/${item.id}`} key={item.id}>
+          <Pressable>
+            <Card
+              name={item.name}
+              rating={item.totalRatingStars}
+              releaseDate={item.releaseDate.human}
+              imageUrl={item.cover.imageUrl}
+            />
+          </Pressable>
+        </Link>
       )}
     />
   )

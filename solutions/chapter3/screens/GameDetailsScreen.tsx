@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import type { ImageStyle, TextStyle, ViewStyle } from 'react-native'
-import { Image, ScrollView, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useCallback, useEffect, useState } from "react"
+import type { ImageStyle, TextStyle, ViewStyle } from "react-native"
+import { Image, ScrollView, View } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { api } from '../../../shared/services/api'
-import type { Game } from '../../../shared/services/types'
-import { colors, sizes } from '../../../shared/theme'
-import { Empty } from '../components/Empty'
-import { Rating } from '../components/Rating'
-import { Text } from '../components/Text'
+import { api } from "@/shared/services/api"
+import type { Game } from "@/shared/services/types"
+import { colors, sizes } from "@/shared/theme"
+
+import { Empty } from "../components/Empty"
+import { Rating } from "../components/Rating"
+import { Text } from "../components/Text"
 
 interface GameDetailsScreenProps {
   gameId?: number
@@ -37,7 +38,7 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
   if (gameId === undefined) {
     return (
       <View style={$missingWrapper}>
-        <Empty text={'No game selected'} icon="frown" />
+        <Empty text={"No game selected"} icon="frown" />
       </View>
     )
   }
@@ -55,9 +56,7 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
   } = game ?? {}
 
   return (
-    <ScrollView
-      style={$scrollView}
-      contentContainerStyle={[$contentContainer, { paddingBottom }]}>
+    <ScrollView style={$scrollView} contentContainerStyle={[$contentContainer, { paddingBottom }]}>
       {screenshots ? (
         <Image
           blurRadius={10}
@@ -70,11 +69,7 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
       <View style={$bodyWrapper}>
         <View style={$headerWrapper}>
           {cover ? (
-            <Image
-              resizeMode="cover"
-              source={{ uri: cover?.imageUrl }}
-              style={$image}
-            />
+            <Image resizeMode="cover" source={{ uri: cover?.imageUrl }} style={$image} />
           ) : (
             <View style={$image} />
           )}
@@ -83,23 +78,19 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
         </View>
 
         {!game ? (
-          <Empty text={'Loading\nPlease Wait...'} icon="loader" />
+          <Empty text={"Loading\nPlease Wait..."} icon="loader" />
         ) : (
           <>
             <View style={$informationWrapper}>
               <View style={$informationRow}>
                 <Text preset="label2" text="Released:" />
-                <Text
-                  preset="title2"
-                  text={releaseDate?.human}
-                  style={$informationValue}
-                />
+                <Text preset="title2" text={releaseDate?.human} style={$informationValue} />
               </View>
               <View style={$informationRow}>
                 <Text preset="label2" text="Genre:" />
                 <Text
                   preset="title2"
-                  text={genres?.map(g => g.name).join(', ')}
+                  text={genres?.map((g) => g.name).join(", ")}
                   style={$informationValue}
                 />
               </View>
@@ -107,15 +98,12 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
                 <Text preset="label2" text="Studio:" />
                 <Text
                   preset="title2"
-                  text={involvedCompanies?.map(c => c.company.name).join(', ')}
+                  text={involvedCompanies?.map((c) => c.company.name).join(", ")}
                   style={$informationValue}
                 />
               </View>
               {!!totalRatingStars && (
-                <Rating
-                  ratingsCount={totalRatingCount}
-                  rating={totalRatingStars}
-                />
+                <Rating ratingsCount={totalRatingCount} rating={totalRatingStars} />
               )}
             </View>
 
@@ -150,8 +138,8 @@ const $informationWrapper: ViewStyle = {
 }
 
 const $informationRow: ViewStyle = {
-  flexDirection: 'row',
-  alignItems: 'flex-start',
+  flexDirection: "row",
+  alignItems: "flex-start",
   columnGap: sizes.spacing.xs,
 }
 
@@ -166,7 +154,7 @@ const $descriptionWrapper: ViewStyle = {
 
 const $imageBackground: ImageStyle = {
   height: 175,
-  width: '100%',
+  width: "100%",
   backgroundColor: colors.background.secondary,
   borderColor: colors.border.base,
   borderBottomWidth: sizes.border.sm,
@@ -180,13 +168,13 @@ const $image: ImageStyle = {
   marginEnd: sizes.spacing.md,
   width: 115,
   backgroundColor: colors.background.secondary,
-  position: 'absolute',
+  position: "absolute",
   bottom: 0,
 }
 
 const $headerWrapper: ViewStyle = {
-  alignItems: 'center',
-  flexDirection: 'row',
+  alignItems: "center",
+  flexDirection: "row",
   paddingVertical: sizes.spacing.md,
   paddingLeft: ($image.width as number) + sizes.spacing.md,
   minHeight: 104,
@@ -194,8 +182,8 @@ const $headerWrapper: ViewStyle = {
 
 const $missingWrapper: ViewStyle = {
   flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: "center",
+  alignItems: "center",
   backgroundColor: colors.background.primary,
   paddingHorizontal: sizes.spacing.md,
 }

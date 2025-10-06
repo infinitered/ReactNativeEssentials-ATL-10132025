@@ -1,10 +1,11 @@
-import React from 'react'
-import type { TextStyle, ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import React from "react"
+import type { TextStyle, ViewStyle } from "react-native"
+import { View } from "react-native"
 
-import { colors, sizes } from '../../../shared/theme'
-import { Icon } from './Icon'
-import { Text } from './Text'
+import { colors, sizes } from "@/shared/theme"
+
+import { Icon } from "./Icon"
+import { Text } from "./Text"
 
 interface RatingProps {
   rating: number
@@ -12,12 +13,9 @@ interface RatingProps {
 }
 
 export const Rating = ({ rating, ratingsCount }: RatingProps) => {
-  const label = [
-    'Rating',
-    ratingsCount !== undefined && `(${ratingsCount} ratings)`,
-  ]
+  const label = ["Rating", ratingsCount !== undefined && `(${ratingsCount} ratings)`]
     .filter(Boolean)
-    .join(' ')
+    .join(" ")
 
   return (
     <View style={$container}>
@@ -30,9 +28,9 @@ export const Rating = ({ rating, ratingsCount }: RatingProps) => {
 }
 
 const $container: ViewStyle = {
-  flexDirection: 'row',
+  flexDirection: "row",
   columnGap: sizes.spacing.xs,
-  alignItems: 'center',
+  alignItems: "center",
 }
 
 const $label: TextStyle = {
