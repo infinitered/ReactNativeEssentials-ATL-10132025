@@ -1,40 +1,33 @@
-import React, { createContext, useContext, useState } from 'react'
+import type { PropsWithChildren } from "react"
+import React, { createContext, useContext, useState } from "react"
 
-interface Game {
-  id: number
-  name: string
-}
+import type { Game, GlobalStateContextData } from "../../../shared/services/types"
 
-interface AppState {
-  games: Game[]
-  selectedGame?: Game
-  isLoading: boolean
-}
-
-interface AppStateContextData {
-  state: AppState
-  setState: (state: AppState) => void
-}
-
-const AppStateContext = createContext<AppStateContextData | undefined>(undefined)
-
-export const AppStateProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, setState] = useState<AppState>({
+export const GlobalStateContext = createContext<Pick<GlobalStateContextData, "games" | "setGames">>(
+  {
     games: [],
-    isLoading: false,
-  })
+    setGames: (_games: Array<Game>) => undefined,
+  },
+)
+
+export const GlobalStateProvider = ({ children }: PropsWithChildren) => {
+  const [games, setGames] = useState<Array<Game>>([])
 
   return (
-    <AppStateContext.Provider value={{ state, setState }}>
+    <GlobalStateContext.Provider
+      value={{
+        games,
+        setGames,
+      }}>
       {children}
-    </AppStateContext.Provider>
+    </GlobalStateContext.Provider>
   )
 }
 
-export const useAppState = () => {
-  const context = useContext(AppStateContext)
+export const useGlobalState = () => {
+  const context = useContext(GlobalStateContext)
   if (!context) {
-    throw new Error('useAppState must be used within AppStateProvider')
+    throw new Error("useGlobalState must be used within GlobalStateProvider")
   }
   return context
 }
