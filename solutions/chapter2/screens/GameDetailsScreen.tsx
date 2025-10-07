@@ -2,11 +2,10 @@ import type { ImageStyle, TextStyle, ViewStyle } from "react-native"
 import { Image, ScrollView, View } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
+import { Rating } from "@components/Rating"
+import { Text } from "@components/Text"
 import { colors, sizes } from "@shared/theme"
 import { games } from "@shared/utils/sampleGames"
-
-import { Rating } from "@/components/Rating"
-import { Text } from "@/components/Text"
 
 export const GameDetailsScreen = ({ gameId }: { gameId: string }) => {
   const { bottom: paddingBottom } = useSafeAreaInsets()
