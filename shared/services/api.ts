@@ -4,7 +4,7 @@ const BASE_URL = "https://api.rawg.io/api"
 // INSERT HERE: Add your RAWG API key
 // Get your free API key from: https://rawg.io/apidocs
 // You can also set this as an environment variable: RAWG_API_KEY
-const API_KEY = process.env.RAWG_API_KEY
+const API_KEY = process.env.RAWG_API_KEY || "YOUR_RAWG_API_KEY_HERE"
 
 // Warn if API key is not configured
 if (API_KEY === "YOUR_RAWG_API_KEY_HERE") {
