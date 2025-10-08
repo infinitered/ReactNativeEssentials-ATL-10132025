@@ -1,7 +1,7 @@
 import type { ImageStyle, ViewStyle } from "react-native"
 import { Image, View } from "react-native"
 
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes } from "@theme/index"
 
 import { Rating } from "./Rating"
 import { Text } from "./Text"

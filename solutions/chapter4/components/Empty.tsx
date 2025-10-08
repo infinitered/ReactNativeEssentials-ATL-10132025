@@ -2,7 +2,7 @@ import React from "react"
 import type { TextStyle, ViewStyle } from "react-native"
 import { View } from "react-native"
 
-import { sizes, ThemedStyle, useAppTheme } from "@shared/theme"
+import { sizes, ThemedStyle, useAppTheme } from "@theme/index"
 
 import type { IconProps } from "./Icon"
 import { Icon } from "./Icon"

@@ -2,7 +2,7 @@ import React from "react"
 import type { StyleProp, TextProps as RNTextProps, TextStyle } from "react-native"
 import { Text as RNText } from "react-native"
 
-import { colors, fonts, ThemedStyle, useAppTheme } from "@shared/theme"
+import { colors, fonts, ThemedStyle, useAppTheme } from "@theme/index"
 
 interface TextProps extends RNTextProps {
   /**

@@ -8,7 +8,7 @@ import { useGlobalState } from "@services/state"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { api } from "@shared/services/api"
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes } from "@theme/index"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom } = useSafeAreaInsets()

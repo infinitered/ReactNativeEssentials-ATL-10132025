@@ -1,7 +1,7 @@
 import type { TextStyle, ViewStyle } from "react-native"
 import { View } from "react-native"
 
-import { sizes, ThemedStyle, useAppTheme } from "@shared/theme"
+import { sizes, ThemedStyle, useAppTheme } from "@theme/index"
 
 import { Icon } from "./Icon"
 import { Text } from "./Text"

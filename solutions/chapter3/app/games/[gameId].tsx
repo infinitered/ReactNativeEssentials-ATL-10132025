@@ -3,7 +3,7 @@ import { router, Stack, useLocalSearchParams } from "expo-router"
 import { Icon, IconProps } from "@components/Icon"
 import { GameDetailsScreen } from "@screens/GameDetailsScreen"
 
-import { colors, fonts, sizes } from "@shared/theme"
+import { colors, fonts, sizes } from "@theme/index"
 
 export default function GameDetails() {
   const { gameId } = useLocalSearchParams<{ gameId: string }>()

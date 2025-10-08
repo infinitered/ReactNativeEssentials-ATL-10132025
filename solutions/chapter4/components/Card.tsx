@@ -2,7 +2,7 @@ import React from "react"
 import type { ImageStyle, ViewStyle } from "react-native"
 import { Image, View } from "react-native"
 
-import { ThemedStyle, useAppTheme } from "@shared/theme"
+import { ThemedStyle, useAppTheme } from "@theme/index"
 
 import { Rating } from "./Rating"
 import { Text } from "./Text"

@@ -8,7 +8,7 @@ import { Rating } from "@components/Rating"
 import { Text } from "@components/Text"
 import { api } from "@shared/services/api"
 import type { Game } from "@shared/services/types"
-import { sizes, ThemedStyle, useAppTheme } from "@shared/theme"
+import { sizes, ThemedStyle, useAppTheme } from "@theme/index"
 
 interface GameDetailsScreenProps {
   gameId?: number

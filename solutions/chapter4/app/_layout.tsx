@@ -4,7 +4,7 @@ import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-c
 import { GlobalStateProvider } from "@services/state"
 import { setupDevtools } from "@shared/devtools/setup"
 import { useWebFonts } from "@shared/hooks/useWebFonts"
-import { useAppTheme, useThemeProvider } from "@shared/theme"
+import { useAppTheme, useThemeProvider } from "@theme/index"
 
 import { fonts } from "@/shared/theme/fonts"
 
