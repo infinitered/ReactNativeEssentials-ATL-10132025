@@ -25,7 +25,8 @@
       "@components/*": ["./src/components/*"],
       "@screens/*": ["./src/screens/*"],
       "@services/*": ["./src/services/*"],
-      "@shared/*": ["./shared/*"]
+      "@shared/*": ["./shared/*"],
+      "@theme/*": ["./src/theme/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types"]
   },
