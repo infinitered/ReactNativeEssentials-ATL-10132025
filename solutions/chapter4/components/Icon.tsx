@@ -1,7 +1,7 @@
 import React, { ComponentProps } from "react"
 import VectorIcon from "@react-native-vector-icons/feather"
 
-import { useAppTheme } from "@/shared/theme"
+import { useAppTheme } from "@theme/index"
 
 export interface IconProps {
   name: ComponentProps<typeof VectorIcon>["name"]
