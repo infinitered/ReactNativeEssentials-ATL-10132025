@@ -3,7 +3,7 @@ import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-c
 
 import { setupDevtools } from "../../shared/devtools/setup"
 import { useWebFonts } from "../../shared/hooks/useWebFonts"
-import { colors, fonts, sizes } from "@/theme/index"
+import { colors, fonts, sizes } from "@theme/index"
 import { GlobalStateProvider } from "../services/state"
 
 export default function RootLayout() {
