@@ -97,3 +97,5 @@ web-build/
 !.yarn/versions
 
 .cursor
+
+.env

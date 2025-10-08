@@ -19,8 +19,12 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./*"],
+      "@src/*": ["./src/*"],
       "@assets/*": ["./assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@services/*": ["./src/services/*"],
       "@shared/*": ["./shared/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types"]
@@ -33,9 +37,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "shared/theme/**/*.ts",
-    "shared/utils/**/*.ts",
-    "shared/services/**/*.ts",
+    "shared/**/*.ts",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ],
@@ -46,6 +48,7 @@
     "app.config.ts",
     "src/devtools/**",
     "shared/app/**",
-    "shared/devtools/**"
+    "shared/devtools/**",
+    "shared/utils/sampleGames.ts"
   ]
 }

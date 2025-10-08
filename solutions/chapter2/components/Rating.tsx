@@ -16,12 +16,25 @@ export const Rating = ({ rating, ratingsCount }: RatingProps) => {
     .filter(Boolean)
     .join(" ")
 
+  // Create array of 5 stars - rating is already normalized to 0-5 scale at API level
+  const stars = Array.from({ length: 5 }, (_, i) => {
+    const starRating = i + 1
+    if (starRating <= rating) {
+      // Filled star
+      return <Icon color={colors.tint.accent} key={i} name="star" />
+    } else {
+      // Empty star
+      return <Icon color={colors.text.baseMuted} key={i} name="star" />
+    }
+  })
+
   return (
     <View style={$container}>
       <Text style={$label} preset="label2" text={`${label}:`} />
-      {Array.from({ length: rating }).map((_, i) => (
-        <Icon color={colors.tint.accent} key={i} name="star" />
-      ))}
+      <View style={$starsContainer}>
+        {stars}
+        <Text style={$ratingText} preset="label2" text={`${rating}.0`} />
+      </View>
     </View>
   )
 }
@@ -34,4 +47,14 @@ const $container: ViewStyle = {
 
 const $label: TextStyle = {
   bottom: -2,
+}
+
+const $starsContainer: ViewStyle = {
+  flexDirection: "row",
+  alignItems: "center",
+  columnGap: sizes.spacing.xs,
+}
+
+const $ratingText: TextStyle = {
+  color: colors.text.baseMuted,
 }

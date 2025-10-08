@@ -1,6 +1,6 @@
 import { Stack } from "expo-router"
 
-import { GamesListScreen } from "@/screens/GamesListScreen"
+import { GamesListScreen } from "@screens/GamesListScreen"
 
 export default function GamesListRoute() {
   return (
