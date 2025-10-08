@@ -46,3 +46,4 @@ const sizes = {
 }
 
 export { colors, darkColors, sizes }
+export * from "./fonts"
