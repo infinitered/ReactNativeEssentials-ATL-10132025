@@ -1,7 +1,7 @@
 import type { TextStyle, ViewStyle } from "react-native"
 import { View } from "react-native"
 
-import { colors, sizes } from "@shared/theme"
+import { sizes, ThemedStyle, useAppTheme } from "@shared/theme"
 
 import { Icon } from "./Icon"
 import { Text } from "./Text"
@@ -12,6 +12,10 @@ interface RatingProps {
 }
 
 export const Rating = ({ rating, ratingsCount }: RatingProps) => {
+  const {
+    themed,
+    theme: { colors },
+  } = useAppTheme()
   const label = ["Rating", ratingsCount !== undefined && `(${ratingsCount} ratings)`]
     .filter(Boolean)
     .join(" ")
@@ -33,7 +37,7 @@ export const Rating = ({ rating, ratingsCount }: RatingProps) => {
       <Text style={$label} preset="label2" text={`${label}:`} />
       <View style={$starsContainer}>
         {stars}
-        <Text style={$ratingText} preset="label2" text={`${rating}.0`} />
+        <Text style={themed($ratingText)} preset="label2" text={`${rating}.0`} />
       </View>
     </View>
   )
@@ -55,6 +59,6 @@ const $starsContainer: ViewStyle = {
   columnGap: sizes.spacing.xs,
 }
 
-const $ratingText: TextStyle = {
+const $ratingText: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.text.baseMuted,
-}
+})

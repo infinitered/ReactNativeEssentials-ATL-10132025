@@ -3,10 +3,13 @@ import { router, Stack, useLocalSearchParams } from "expo-router"
 import { Icon, IconProps } from "@components/Icon"
 import { GameDetailsScreen } from "@screens/GameDetailsScreen"
 
-import { colors, fonts, sizes } from "@shared/theme"
+import { fonts, sizes, useAppTheme } from "@shared/theme"
 
 export default function GameDetails() {
   const { gameId } = useLocalSearchParams<{ gameId: string }>()
+  const {
+    theme: { colors },
+  } = useAppTheme()
 
   return (
     <>
@@ -22,6 +25,7 @@ export default function GameDetails() {
             renderIconButton({
               name: "arrow-left-circle",
               onPress: canGoBack ? router.back : undefined,
+              color: colors.tint.base,
             }),
           headerStyle: {
             backgroundColor: colors.background.brand,
@@ -40,12 +44,7 @@ export default function GameDetails() {
 }
 
 function renderIconButton(props: IconProps & { onPress?: () => void }) {
-  const {
-    name,
-    onPress,
-    color = colors.tint.base,
-    size = Platform.select({ ios: 24, android: 30 }),
-  } = props
+  const { name, onPress, color, size = Platform.select({ ios: 24, android: 30 }) } = props
 
   if (!name) return null
   if (!onPress) return null

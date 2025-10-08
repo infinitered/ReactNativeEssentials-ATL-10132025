@@ -8,12 +8,13 @@ import { useGlobalState } from "@services/state"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { api } from "@shared/services/api"
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes, ThemedStyle, useAppTheme } from "@shared/theme"
 
 export const GamesListScreen = () => {
   const { bottom: paddingBottom } = useSafeAreaInsets()
   const router = useRouter()
   const { games, setGames } = useGlobalState()
+  const { themed } = useAppTheme()
 
   const getGames = useCallback(async () => {
     const response = await api.getGames()
@@ -29,7 +30,7 @@ export const GamesListScreen = () => {
   return (
     <FlatList
       data={games}
-      style={$list}
+      style={themed($list)}
       keyExtractor={(item) => String(item.id)}
       contentContainerStyle={[{ paddingBottom }, $contentContainer]}
       ListEmptyComponent={<Empty />}
@@ -49,9 +50,9 @@ export const GamesListScreen = () => {
   )
 }
 
-const $list: ViewStyle = {
+const $list: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background.primary,
-}
+})
 
 const $contentContainer: ViewStyle = {
   rowGap: sizes.spacing.lg,

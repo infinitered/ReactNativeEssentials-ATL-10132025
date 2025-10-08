@@ -2,7 +2,7 @@ import React from "react"
 import type { StyleProp, TextProps as RNTextProps, TextStyle } from "react-native"
 import { Text as RNText } from "react-native"
 
-import { colors, fonts } from "@shared/theme"
+import { colors, fonts, ThemedStyle, useAppTheme } from "@shared/theme"
 
 interface TextProps extends RNTextProps {
   /**
@@ -17,19 +17,20 @@ interface TextProps extends RNTextProps {
 
 export const Text = (props: TextProps) => {
   const { text, children, preset = "body", style: $styleOverride, ...RestTextProps } = props
+  const { themed } = useAppTheme()
 
   const content = text ?? children
 
   const $textStyle = [$base, $presets[preset], $styleOverride]
 
   return (
-    <RNText {...RestTextProps} style={$textStyle}>
+    <RNText {...RestTextProps} style={themed($textStyle)}>
       {content}
     </RNText>
   )
 }
 
-const $base: TextStyle = { color: colors.text.base }
+const $base: ThemedStyle<TextStyle> = ({ colors }) => ({ color: colors.text.base })
 
 const $presets = {
   display: { fontSize: 36, lineHeight: 44, fontFamily: fonts.primary.regular },

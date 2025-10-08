@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react"
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native"
 import { Image, ScrollView, View } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+
 import { Empty } from "@components/Empty"
 import { Rating } from "@components/Rating"
 import { Text } from "@components/Text"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
-
 import { api } from "@shared/services/api"
 import type { Game } from "@shared/services/types"
-import { colors, sizes } from "@shared/theme"
+import { sizes, ThemedStyle, useAppTheme } from "@shared/theme"
 
 interface GameDetailsScreenProps {
   gameId?: number
@@ -16,6 +16,7 @@ interface GameDetailsScreenProps {
 
 export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
   const { bottom: paddingBottom } = useSafeAreaInsets()
+  const { themed } = useAppTheme()
 
   const [game, setGame] = useState<Game | undefined>()
 
@@ -36,7 +37,7 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
 
   if (gameId === undefined) {
     return (
-      <View style={$missingWrapper}>
+      <View style={themed($missingWrapper)}>
         <Empty text={"No game selected"} icon="frown" />
       </View>
     )
@@ -55,22 +56,24 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
   } = game ?? {}
 
   return (
-    <ScrollView style={$scrollView} contentContainerStyle={[$contentContainer, { paddingBottom }]}>
+    <ScrollView
+      style={themed($scrollView)}
+      contentContainerStyle={[$contentContainer, { paddingBottom }]}>
       {screenshots ? (
         <Image
           blurRadius={10}
           source={{ uri: screenshots[0]?.imageUrl }}
-          style={$imageBackground}
+          style={themed($imageBackground)}
         />
       ) : (
-        <View style={$imageBackground} />
+        <View style={themed($imageBackground)} />
       )}
-      <View style={$bodyWrapper}>
-        <View style={$headerWrapper}>
+      <View style={themed($bodyWrapper)}>
+        <View style={themed($headerWrapper)}>
           {cover ? (
-            <Image resizeMode="cover" source={{ uri: cover?.imageUrl }} style={$image} />
+            <Image resizeMode="cover" source={{ uri: cover?.imageUrl }} style={themed($image)} />
           ) : (
-            <View style={$image} />
+            <View style={themed($image)} />
           )}
 
           <Text preset="headline1" text={name} />
@@ -116,20 +119,20 @@ export const GameDetailsScreen = ({ gameId }: GameDetailsScreenProps) => {
   )
 }
 
-const $scrollView: ViewStyle = {
+const $scrollView: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
   backgroundColor: colors.background.primary,
-}
+})
 
 const $contentContainer: ViewStyle = {
   flexGrow: 1,
 }
 
-const $bodyWrapper: ViewStyle = {
+const $bodyWrapper: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background.primary,
   paddingHorizontal: sizes.spacing.md,
   flexGrow: 1,
-}
+})
 
 const $informationWrapper: ViewStyle = {
   paddingVertical: sizes.spacing.md,
@@ -151,15 +154,15 @@ const $descriptionWrapper: ViewStyle = {
   paddingVertical: sizes.spacing.md,
 }
 
-const $imageBackground: ImageStyle = {
+const $imageBackground: ThemedStyle<ImageStyle> = ({ colors }) => ({
   height: 175,
   width: "100%",
   backgroundColor: colors.background.secondary,
   borderColor: colors.border.base,
   borderBottomWidth: sizes.border.sm,
-}
+})
 
-const $image: ImageStyle = {
+const $image: ThemedStyle<ImageStyle> = ({ colors }) => ({
   borderColor: colors.border.base,
   borderRadius: sizes.radius.sm,
   borderWidth: sizes.border.sm,
@@ -169,20 +172,20 @@ const $image: ImageStyle = {
   backgroundColor: colors.background.secondary,
   position: "absolute",
   bottom: 0,
-}
+})
 
-const $headerWrapper: ViewStyle = {
+const $headerWrapper: ThemedStyle<ViewStyle> = (themed) => ({
   alignItems: "center",
   flexDirection: "row",
   paddingVertical: sizes.spacing.md,
-  paddingLeft: ($image.width as number) + sizes.spacing.md,
+  paddingLeft: ($image(themed).width as number) + sizes.spacing.md,
   minHeight: 104,
-}
+})
 
-const $missingWrapper: ViewStyle = {
+const $missingWrapper: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: colors.background.primary,
   paddingHorizontal: sizes.spacing.md,
-}
+})

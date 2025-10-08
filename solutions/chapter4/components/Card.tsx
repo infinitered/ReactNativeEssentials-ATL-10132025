@@ -2,7 +2,7 @@ import React from "react"
 import type { ImageStyle, ViewStyle } from "react-native"
 import { Image, View } from "react-native"
 
-import { colors, sizes } from "@shared/theme"
+import { ThemedStyle, useAppTheme } from "@shared/theme"
 
 import { Rating } from "./Rating"
 import { Text } from "./Text"
@@ -16,15 +16,17 @@ interface CardProps {
 
 export const Card = (props: CardProps) => {
   const { name, imageUrl, releaseDate, rating = 0 } = props
+  const { themed } = useAppTheme()
+
   return (
     <View>
-      <View style={$reflection} />
-      <View style={$card}>
-        <Image source={{ uri: imageUrl }} style={$image} />
-        <View style={$contentWrapper}>
+      <View style={themed($reflection)} />
+      <View style={themed($card)}>
+        <Image source={{ uri: imageUrl }} style={themed($image)} />
+        <View style={themed($contentWrapper)}>
           <Text numberOfLines={1} preset="headline2" text={name} />
 
-          <View style={$contentRow}>
+          <View style={themed($contentRow)}>
             <Text preset="label2" text="Released:" />
             <Text preset="title2" text={releaseDate} />
           </View>
@@ -36,7 +38,7 @@ export const Card = (props: CardProps) => {
   )
 }
 
-const $card: ViewStyle = {
+const $card: ThemedStyle<ViewStyle> = ({ colors, sizes }) => ({
   backgroundColor: colors.background.brand,
   borderColor: colors.border.base,
   borderRadius: sizes.radius.md,
@@ -44,9 +46,9 @@ const $card: ViewStyle = {
   flexDirection: "row",
   padding: sizes.spacing.md,
   columnGap: sizes.spacing.md,
-}
+})
 
-const $reflection: ViewStyle = {
+const $reflection: ThemedStyle<ViewStyle> = ({ colors, sizes }) => ({
   backgroundColor: colors.background.reflection,
   borderRadius: sizes.radius.md,
   bottom: -6,
@@ -54,24 +56,24 @@ const $reflection: ViewStyle = {
   position: "absolute",
   right: -6,
   width: "100%",
-}
+})
 
-const $contentWrapper: ViewStyle = {
+const $contentWrapper: ThemedStyle<ViewStyle> = ({ sizes }) => ({
   flex: 1,
   justifyContent: "center",
   rowGap: sizes.spacing.xs,
-}
+})
 
-const $image: ImageStyle = {
+const $image: ThemedStyle<ImageStyle> = ({ colors, sizes }) => ({
   borderColor: colors.border.base,
   borderRadius: sizes.radius.sm,
   borderWidth: sizes.border.sm,
   height: 120,
   width: 90,
-}
+})
 
-const $contentRow: ViewStyle = {
+const $contentRow: ThemedStyle<ViewStyle> = ({ sizes }) => ({
   flexDirection: "row",
   columnGap: sizes.spacing.xs,
   alignItems: "center",
-}
+})
