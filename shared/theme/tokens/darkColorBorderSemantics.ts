@@ -4,5 +4,5 @@
  */
 
 export const base = "#000000ff"
-export const accent = "#490448ff"
-export const transparent = "#ffffff00"
+export const accent = "#099faaff"
+export const transparent = "#00000000"
