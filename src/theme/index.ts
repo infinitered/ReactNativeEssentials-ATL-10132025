@@ -2,6 +2,10 @@ import * as colorBackgroundSemantics from "./tokens/colorBackgroundSemantics"
 import * as colorBorderSemantics from "./tokens/colorBorderSemantics"
 import * as colorTextSemantics from "./tokens/colorTextSemantics"
 import * as colorTintSemantics from "./tokens/colorTintSemantics"
+import * as darkColorBackgroundSemantics from "./tokens/darkColorBackgroundSemantics"
+import * as darkColorBorderSemantics from "./tokens/darkColorBorderSemantics"
+import * as darkColorTextSemantics from "./tokens/darkColorTextSemantics"
+import * as darkColorTintSemantics from "./tokens/darkColorTintSemantics"
 import * as sizeBorderSemantics from "./tokens/sizeBorderSemantics"
 import * as sizeRadiusSemantics from "./tokens/sizeRadiusSemantics"
 import * as sizeSpacingSemantics from "./tokens/sizeSpacingSemantics"
@@ -27,11 +31,19 @@ const colors = {
   manipulators: { changeHexAlpha },
 }
 
+const darkColors = {
+  background: darkColorBackgroundSemantics,
+  text: darkColorTextSemantics,
+  tint: darkColorTintSemantics,
+  border: darkColorBorderSemantics,
+  manipulators: { changeHexAlpha },
+}
+
 const sizes = {
   radius: sizeRadiusSemantics,
   border: sizeBorderSemantics,
   spacing: sizeSpacingSemantics,
 }
 
-export { colors, sizes }
+export { colors, darkColors, sizes }
 export * from "./fonts"

@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { Rating } from "@components/Rating"
 import { Text } from "@components/Text"
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes } from "@theme/index"
 import { games } from "@shared/utils/sampleGames"
 
 export const GameDetailsScreen = ({ gameId }: { gameId: string }) => {

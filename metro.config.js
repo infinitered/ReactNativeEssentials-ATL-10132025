@@ -38,6 +38,7 @@ config.resolver.alias = {
   "@components": path.resolve(__dirname, "src/components"),
   "@screens": path.resolve(__dirname, "src/screens"),
   "@services": path.resolve(__dirname, "src/services"),
+  "@theme": path.resolve(__dirname, "src/theme"),
 }
 
 module.exports = config

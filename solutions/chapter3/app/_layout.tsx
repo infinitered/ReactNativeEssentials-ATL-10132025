@@ -1,10 +1,10 @@
-import { Stack } from 'expo-router'
-import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
+import { Stack } from "expo-router"
+import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
-import { setupDevtools } from '../../shared/devtools/setup'
-import { useWebFonts } from '../../shared/hooks/useWebFonts'
-import { colors, fonts, sizes } from '../../shared/theme'
-import { GlobalStateProvider } from '../services/state'
+import { setupDevtools } from "../../shared/devtools/setup"
+import { useWebFonts } from "../../shared/hooks/useWebFonts"
+import { colors, fonts, sizes } from "@theme/index"
+import { GlobalStateProvider } from "../services/state"
 
 export default function RootLayout() {
   if (__DEV__) {
@@ -28,7 +28,7 @@ export default function RootLayout() {
               backgroundColor: colors.background.brand,
             },
             headerTintColor: colors.text.base,
-            headerTitleAlign: 'center',
+            headerTitleAlign: "center",
             headerTitleStyle: {
               fontSize: 24,
               fontFamily: fonts.primary.semiBold,

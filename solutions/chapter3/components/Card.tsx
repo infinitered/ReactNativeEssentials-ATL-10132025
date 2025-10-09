@@ -1,10 +1,9 @@
-import React from "react"
 import type { ImageStyle, ViewStyle } from "react-native"
 import { Image, View } from "react-native"
 
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes } from "@theme/index"
 
-import { Rating } from "./Rating"
+import { Icon } from "./Icon"
 import { Text } from "./Text"
 
 interface CardProps {
@@ -16,11 +15,12 @@ interface CardProps {
 
 export const Card = (props: CardProps) => {
   const { name, imageUrl, releaseDate, rating = 0 } = props
+
   return (
     <View>
       <View style={$reflection} />
       <View style={$card}>
-        <Image source={{ uri: imageUrl }} style={$image} />
+        <Image source={{ uri: imageUrl }} style={$image} resizeMode="cover" />
         <View style={$contentWrapper}>
           <Text numberOfLines={1} preset="headline2" text={name} />
 
@@ -29,7 +29,12 @@ export const Card = (props: CardProps) => {
             <Text preset="title2" text={releaseDate} />
           </View>
 
-          <Rating rating={rating} />
+          <View style={$ratingContainer}>
+            <Text preset="label2" text={"Rating:"} />
+            {Array.from({ length: rating }).map((_, i) => (
+              <Icon color={colors.tint.accent} key={i} name="star" />
+            ))}
+          </View>
         </View>
       </View>
     </View>
@@ -63,6 +68,7 @@ const $contentWrapper: ViewStyle = {
 }
 
 const $image: ImageStyle = {
+  backgroundColor: colors.background.accent,
   borderColor: colors.border.base,
   borderRadius: sizes.radius.sm,
   borderWidth: sizes.border.sm,
@@ -71,6 +77,12 @@ const $image: ImageStyle = {
 }
 
 const $contentRow: ViewStyle = {
+  flexDirection: "row",
+  columnGap: sizes.spacing.xs,
+  alignItems: "center",
+}
+
+const $ratingContainer: ViewStyle = {
   flexDirection: "row",
   columnGap: sizes.spacing.xs,
   alignItems: "center",

@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 import { api } from "@shared/services/api"
 import type { Game } from "@shared/services/types"
-import { colors, sizes } from "@shared/theme"
+import { colors, sizes } from "@theme/index"
 
 interface GameDetailsScreenProps {
   gameId?: number

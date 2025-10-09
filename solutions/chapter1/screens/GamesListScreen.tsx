@@ -3,7 +3,7 @@ import { ScrollView, ViewStyle } from "react-native"
 import { Card } from "@components/Card"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { sizes, colors } from "@shared/theme"
+import { sizes, colors } from "@theme/index"
 import { games } from "@shared/utils/sampleGames"
 
 export const GamesListScreen = () => {
