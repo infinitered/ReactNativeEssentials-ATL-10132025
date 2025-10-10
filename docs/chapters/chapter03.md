@@ -13,6 +13,7 @@ Chapter 3 brings the games catalog to life. You will build an efficient list scr
 - Render large collections with performant list primitives
 - Share catalog data across screens with context state
 - Drive detail screens from Expo Router navigation and API calls
+- Group data by a particular field in a Section List
 
 ## DIY Tasks
 
@@ -38,9 +39,75 @@ Chapter 3 brings the games catalog to life. You will build an efficient list scr
    b. Display the rating UI via `components/Rating.tsx`
    c. Handle loading and error states appropriately
 
+6. Update the list screen to utilize `SectionList`
+   a. Read the [SectionList docs](https://reactnative.dev/docs/sectionlist) for an example of how the data is shaped and the section headers are rendered
+   b. Implement the `<Pill />` component
+
+```tsx
+import type { TextStyle, ViewStyle } from "react-native"
+import { View } from "react-native"
+
+import { colors, sizes } from "@theme/index"
+
+import { Text } from "./Text"
+
+interface PillProps {
+  text: string
+}
+
+export const Pill = (props: PillProps) => {
+  return (
+    <View style={$pill}>
+      <Text preset="label1" text={props.text} style={$text} />
+    </View>
+  )
+}
+
+const $pill: ViewStyle = {
+  alignItems: "center",
+  alignSelf: "flex-start",
+  backgroundColor: colors.background.accent,
+  borderColor: colors.border.base,
+  borderRadius: sizes.radius.md,
+  borderWidth: sizes.border.sm,
+  height: sizes.spacing.xl,
+  justifyContent: "center",
+  paddingHorizontal: sizes.spacing.md,
+}
+
+const $text: TextStyle = {
+  color: colors.text.brand,
+}
+```
+
+c. Update the global store from Step 2 with a `gamesSectionList` property and return it in the provider's value
+
+```tsx
+const gamesSectionList = useMemo(() => {
+  const initialValue: { [k: number]: unknown[] } = {}
+  const gameListMap = games.reduce((acc, curr) => {
+    const year = curr.releaseDate.y
+    if (acc[year]) {
+      acc[year].push(curr)
+    } else {
+      acc[year] = [curr]
+    }
+    return acc
+  }, initialValue)
+
+  return Object.entries(gameListMap).map(([k, v]) => ({
+    year: k,
+    key: k,
+    data: v,
+  }))
+}, [games])
+```
+
+d. Update the `data` and `renderSectionHeader` prop for the `SectionList` in `GamesListScreen.tsx`
+
 ## Key Resources
 
-- React Native [FlatList](https://reactnative.dev/docs/flatlist)
+- React Native [FlatList](https://reactnative.dev/docs/flatlist) and [SectionList](https://reactnative.dev/docs/sectionlist)
 - Expo Router [Stack](https://docs.expo.dev/router/advanced/stack/) & [Router hooks](https://docs.expo.dev/router/reference/router/)
 - React [Context API](https://react.dev/reference/react/Context)
 - Project Figma: [Games Catalog](https://www.figma.com/design/6Ip46lkbe5Ms1FvccKwOAd/Essentials-Workshop?node-id=728-983&p=f&t=pLCTfl2m8Jx1SkMF-0)
