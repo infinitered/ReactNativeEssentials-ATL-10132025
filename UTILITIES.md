@@ -69,7 +69,7 @@ scripts/
 
 ## Scripts
 
-Several utility scripts have been migrated to help with development workflow:
+Several utility scripts have been added to help with development workflow:
 
 ### Available Scripts
 
