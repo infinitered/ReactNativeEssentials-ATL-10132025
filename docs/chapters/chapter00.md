@@ -12,14 +12,4 @@ This chapter covers essential debugging tools and techniques for React Native de
 - Understand React Native debugging concepts
 - Learn platform-specific debugging techniques
 
-## Tasks
-
-*Coming soon - detailed tasks will be added here*
-
-## Key Concepts
-
-*Coming soon - key concepts will be added here*
-
----
-
 [Next: Chapter 1](./chapter01.md)
