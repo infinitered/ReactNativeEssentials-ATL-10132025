@@ -6,19 +6,13 @@ Run `./scripts/skipTo 6` to copy the solution to your main app, otherwise you ma
 
 This chapter covers comprehensive testing strategies for React Native applications.
 
+We will leverage [Jest](https://jestjs.io/) for our unit tests and [Maestro](https://docs.maestro.dev/) for our end-to-end tests.
+
 ## Learning Objectives
 
 - Write unit tests for components
 - Implement integration tests
 - Set up end-to-end testing
-
-## Tasks
-
-*Coming soon - detailed tasks will be added here*
-
-## Key Concepts
-
-*Coming soon - key concepts will be added here*
 
 ---
 
