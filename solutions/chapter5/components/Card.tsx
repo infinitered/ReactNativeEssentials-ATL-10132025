@@ -23,7 +23,7 @@ export const Card = (props: CardProps) => {
       <View style={themed($reflection)} />
       <View style={themed($card)}>
         <Image source={{ uri: imageUrl }} style={themed($image)} />
-        <View style={themed($contentWrapper)}>
+        <View style={themed($contentWrapper)} accessible accessibilityLabel={name}>
           <Text numberOfLines={1} preset="headline2" text={name} />
 
           <View style={themed($contentRow)}>
