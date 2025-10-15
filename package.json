@@ -30,7 +30,11 @@
     "setup": "./scripts/setup",
     "skipTo": "./scripts/skipTo",
     "verify-environment": "./scripts/verify-environment",
-    "postinstall": "./scripts/postinstall"
+    "postinstall": "./scripts/postinstall",
+    "msw": "./scripts/toggle-msw",
+    "msw:on": "./scripts/toggle-msw on",
+    "msw:off": "./scripts/toggle-msw off",
+    "msw:status": "./scripts/toggle-msw status"
   },
   "dependencies": {
     "@react-native-vector-icons/feather": "^12.3.0",

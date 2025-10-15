@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+set -e
+
+SETUP_FILE="shared/devtools/setup.ts"
+
+# ANSI color codes
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Function to check if MSW is currently enabled
+is_msw_enabled() {
+  # Check if the "try" block after MSW comment is NOT commented
+  # Look for the uncommented "try {" line after the MSW comment
+  if grep -A 1 "Setup MSW (Mock Service Worker)" "$SETUP_FILE" | grep -q "^  try {"; then
+    return 0  # MSW is enabled (try block is not commented)
+  else
+    return 1  # MSW is disabled (try block is commented)
+  fi
+}
+
+# Function to display current status
+show_status() {
+  echo ""
+  if is_msw_enabled; then
+    echo -e "${GREEN}✅ MSW is currently ENABLED${NC}"
+    echo -e "${BLUE}   API calls are being intercepted with mock data${NC}"
+  else
+    echo -e "${RED}❌ MSW is currently DISABLED${NC}"
+    echo -e "${BLUE}   API calls will hit the real RAWG.io API${NC}"
+  fi
+  echo ""
+}
+
+# Function to enable MSW
+enable_msw() {
+  echo -e "${YELLOW}🔧 Enabling MSW...${NC}"
+  
+  # Uncomment the MSW try-catch block (lines after "Setup MSW" comment until closing brace)
+  # This will uncomment all lines that start with "  // " within the MSW block
+  awk '
+    /\/\/ Setup MSW \(Mock Service Worker\)/ { in_msw=1; print; next }
+    in_msw && /^  \/\/ }$/ { print "  }"; in_msw=0; next }
+    in_msw && /^  \/\/ / { sub(/^  \/\/ /, "  "); print; next }
+    { print }
+  ' "$SETUP_FILE" > "${SETUP_FILE}.tmp" && mv "${SETUP_FILE}.tmp" "$SETUP_FILE"
+  
+  echo -e "${GREEN}✅ MSW enabled successfully!${NC}"
+  show_status
+}
+
+# Function to disable MSW
+disable_msw() {
+  echo -e "${YELLOW}🔧 Disabling MSW...${NC}"
+  
+  # Comment out the MSW try-catch block (lines after "Setup MSW" comment until closing brace)
+  awk '
+    /\/\/ Setup MSW \(Mock Service Worker\)/ { in_msw=1; print; next }
+    in_msw && /^  }$/ { print "  // }"; in_msw=0; next }
+    in_msw && /^  [^\/]/ { print "  // " substr($0, 3); next }
+    { print }
+  ' "$SETUP_FILE" > "${SETUP_FILE}.tmp" && mv "${SETUP_FILE}.tmp" "$SETUP_FILE"
+  
+  echo -e "${RED}✅ MSW disabled successfully!${NC}"
+  show_status
+}
+
+# Main logic
+case "${1:-toggle}" in
+  on|enable)
+    if is_msw_enabled; then
+      echo -e "${YELLOW}⚠️  MSW is already enabled${NC}"
+      show_status
+    else
+      enable_msw
+    fi
+    ;;
+  off|disable)
+    if is_msw_enabled; then
+      disable_msw
+    else
+      echo -e "${YELLOW}⚠️  MSW is already disabled${NC}"
+      show_status
+    fi
+    ;;
+  status)
+    show_status
+    ;;
+  toggle|*)
+    if is_msw_enabled; then
+      disable_msw
+    else
+      enable_msw
+    fi
+    ;;
+esac
+
+echo -e "${BLUE}💡 Tip: Reload your app to apply changes${NC}"
+echo ""
+
