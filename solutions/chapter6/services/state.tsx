@@ -11,6 +11,25 @@ export const GlobalStateContext = createContext<
   setGames: (_games: Array<Game>) => undefined,
 })
 
+export const gamesSectionList = (games: Array<Game>) => {
+  const initialValue: { [k: number]: unknown[] } = {}
+  const gameListMap = games.reduce((acc, curr) => {
+    const year = curr.releaseDate.y
+    if (acc[year]) {
+      acc[year].push(curr)
+    } else {
+      acc[year] = [curr]
+    }
+    return acc
+  }, initialValue)
+
+  return Object.entries(gameListMap).map(([k, v]) => ({
+    year: k,
+    key: k,
+    data: v,
+  }))
+}
+
 export const GlobalStateProvider = ({ children }: PropsWithChildren) => {
   const [games, setGames] = useState<Array<Game>>([])
 
