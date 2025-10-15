@@ -1,11 +1,61 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import { useCallback, useEffect } from "react"
+import type { ViewStyle } from "react-native"
+import { Pressable, SectionList } from "react-native"
+import { Link } from "expo-router"
+import { useGlobalState } from "@services/state"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+
+import { Card } from "@components/Card"
+import { Empty } from "@components/Empty"
+import { Pill } from "@components/Pill"
+import { api } from "@shared/services/api"
+import { ThemedStyle, sizes, useAppTheme } from "@theme/index"
 
 export const GamesListScreen = () => {
+  const { bottom: paddingBottom } = useSafeAreaInsets()
+  const { gamesSectionList, setGames } = useGlobalState()
+  const { themed } = useAppTheme()
+
+  const getGames = useCallback(async () => {
+    const response = await api.getGames()
+    if (response.ok) {
+      setGames(response.data)
+    }
+  }, [setGames])
+
+  useEffect(() => {
+    getGames()
+  }, [getGames])
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Chapter 6: Unit and E2E Testing - Coming Soon</Text>
-      <Text>Games List Screen with Testing</Text>
-    </View>
+    <SectionList
+      sections={gamesSectionList}
+      style={themed($list)}
+      keyExtractor={(item) => String(item.id)}
+      contentContainerStyle={[{ paddingBottom }, $contentContainer]}
+      ListEmptyComponent={<Empty />}
+      renderSectionHeader={({ section: { year } }) => <Pill text={year} />}
+      renderItem={({ item }) => (
+        <Link asChild href={`/games/${item.id}`} key={item.id}>
+          <Pressable>
+            <Card
+              name={item.name}
+              rating={item.totalRatingStars}
+              releaseDate={item.releaseDate.human}
+              imageUrl={item.cover.imageUrl}
+            />
+          </Pressable>
+        </Link>
+      )}
+    />
   )
+}
+
+const $list: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  backgroundColor: colors.background.primary,
+})
+
+const $contentContainer: ViewStyle = {
+  rowGap: sizes.spacing.lg,
+  padding: sizes.spacing.md,
 }
